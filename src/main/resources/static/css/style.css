@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+
+/*body {*/
+/*    background-color: #232323;*/
+/*    color: white;*/
+/*    font-family: 'Raleway', sans-serif;*/
+/*    background-image: url("../images/bg.png");*/
+/*    background-size: 100%;*/
+/*}*/
+
+/*.button-head, .tag {*/
+/*    background-color: Transparent;*/
+/*    background-repeat: no-repeat;*/
+/*    color: #56f75f;*/
+/*    border: none;*/
+/*    border-bottom: #56f75f solid 1px;*/
+/*    cursor: pointer;*/
+/*    overflow: hidden;*/
+/*    outline: none;*/
+/*    margin-right: 8px;*/
+/*}*/
+
+/*.button-head:focus {*/
+/*    outline: none;*/
+/*}*/
+
+/*a {*/
+/*    color: rgba(255, 255, 255, 0.549);*/
+/*    font-size: 20px;*/
+/*    transition: all 0.5s ease;*/
+/*}*/
+
+/*a:hover {*/
+/*    text-decoration: none;*/
+/*    color: white;*/
+/*    transition: all 0.5s ease;*/
+/*}*/
+
+/*li {*/
+/*    list-style-type: none;*/
+/*    margin-right: 20px;*/
+/*}*/
+
+/*ul {*/
+/*    display: flex;*/
+/*    height: auto;*/
+/*    margin-bottom: 0;*/
+/*    flex-direction: row;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*}*/
+
+/*.nav {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.main {*/
+/*    min-width: 100vw;*/
+/*    min-height: 100vh;*/
+/*}*/
+
+/*.logo img {*/
+/*    width: 70%;*/
+/*    height: auto;*/
+/*}*/
+
+/*.header {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*}*/
+
+/* posts */
+/*.container_content {*/
+/*    margin-top: 5%;*/
+/*}*/
+
+.post_header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.content {
+    border: 12px solid rgba(128, 128, 128, 0.419);
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 4% 5%;
+    background-color: #1147773f;
+}
+
+.profile {
+    border-radius: 30px;
+    background-color: #0c3a6398;
+    padding: 17px 30px;
+}
+
+h2 {
+    margin-bottom: 0px;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+}
+
+.buttons form {
+    margin-left: 10px;
+    color: #56f75f;
+    opacity: 0.6;
+    transition: all 0.5s ease;
+}
+
+.buttons form:hover {
+    transition: all 0.5s ease;
+    opacity: 1;
+}
+
+.line {
+    height: 6px;
+    border-radius: 20px;
+    background-color: #56baaf;
+    width: 100%;
+    margin: 2% 0%;
+}
+
+.post {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding: 0px 15px;
+}
+
+.post h2 {
+    font-size: 26px;
+}
+.name{
+    color: darkmagenta;
+}
