@@ -2,10 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
-    <!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <title>FBreak</title>
-    <!--    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
@@ -22,7 +19,7 @@
     <div class="container">
         <div class="row header">
             <div class="logo">
-                <img src="../images/logo.svg" alt="logo">
+                <a th:href="@{/}"><img src="../images/logo.svg" alt="logo"></a>
             </div>
             <div class="nav">
                 <ul>
@@ -39,9 +36,10 @@
             <div class="post_header">
                 <div class="profile">
                     <button class="button-head">My profile</button>
+                    <button class="button-head">Create Post</button>
                 </div>
                 <div class="buttons">
-                    <form th:action="@{/}">
+                    <form th:action="@{/}" method="get">
                         <button class="button-head" th:name="sort" th:value="date">Sort by date</button>
                         <button class="button-head" th:name="sort" th:value="rating">Sort by rating</button>
                     </form>
@@ -53,16 +51,10 @@
             <div class="post" th:each="post: ${postsList}">
 
                 <div class="user">
-<!--                    <a href="#"><h2 th:text="${post.fanfic_creator}">User</h2></a>-->
-                </div>
-                <div>
-                    <img src="https://res.cloudinary.com/dqqr510iw/image/upload/images/ahsoka">
-                </div>
-                <div>
-                    <button class=""></button>
+                    <a href="#"><h2 th:text="'Creator: '+${post.fanfic_creator}">User</h2></a>
                 </div>
                 <div class="fandom">
-                    <h2 th:text="${post.fanfic_fandom}">Fandom</h2>
+                    <h2 th:text="'Fandom: '+${post.fanfic_fandom}">Fandom</h2>
                 </div>
 
                 <div class="tags">
@@ -70,14 +62,23 @@
                     <h2 class="tag" th:text="${post.fanfic_tags}"></h2>
                 </div>
                 <div>
+                    <img src="https://res.cloudinary.com/dqqr510iw/image/upload/images/ahsoka">
+                </div>
+                <div>
                     <h2 class="name" th:text="${post.fanfic_name}"></h2>
                 </div>
                 <div class="">
                     <h2 class="description" th:text="${post.fanfic_description}"></h2>
                 </div>
-                <div>
-                    <h3 class="date" th:text="${post.fanfic_date}"></h3>
+                <div class="row">
+                    <div>
+                        <h3 class="date" th:text="${post.fanfic_date}"></h3>
+                    </div>
+                    <div class="buttons">
+                        <button class="button-head" th:value="${post.id}">Read</button>
+                    </div>
                 </div>
+
                 <div class="line"></div>
             </div>
 

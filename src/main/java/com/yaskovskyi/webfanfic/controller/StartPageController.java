@@ -23,11 +23,6 @@ public class StartPageController {
     @RequestMapping("/")
     public String openStartPage(HttpServletRequest request,
                               HttpServletResponse response1, Model model) throws Exception {
-
-        for (Post p: HttpService.getInstance().getPosts()
-             ) {
-            System.out.println(p.getFanfic_date()+"SSSSSSSSSSSSSSSSSSSS");
-        }
         List<Post> posts = HttpService.getInstance().getPosts();
         model.addAttribute("postsList", posts);
         return "index";

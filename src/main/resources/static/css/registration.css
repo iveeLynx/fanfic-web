@@ -1,0 +1,8 @@
+.input, .input:focus {
+    background: none;
+    color: #56f75f;
+}
+
+input:invalid {
+    border: 2px dashed red;
+}

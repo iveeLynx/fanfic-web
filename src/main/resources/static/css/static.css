@@ -7,6 +7,7 @@ body {
     background-image: url("../images/bg.png");
     background-size: 100%;
 }
+
 .button-head, .tag {
     background-color: Transparent;
     background-repeat: no-repeat;
@@ -18,6 +19,7 @@ body {
     outline: none;
     margin-right: 8px;
 }
+
 .button-head:focus {
     outline: none;
 }
@@ -33,6 +35,7 @@ a:hover {
     color: white;
     transition: all 0.5s ease;
 }
+
 li {
     list-style-type: none;
     margin-right: 20px;
@@ -70,41 +73,9 @@ ul {
 .container_content {
     margin-top: 5%;
 }
-/*html, body {*/
-/*    font-family: 'Cinzel', serif;font-size: 22px;*/
-/*    height: 100%;*/
-/*    margin: 0;*/
-/*    background: url("../images/brick_background.jpg")  repeat;*/
-/*}*/
-/*.bg-green{*/
-/*    background: chartreuse;*/
-/*    opacity: 0.8;*/
-/*}*/
-/*div {*/
-/*}*/
-/*#sort_text{*/
-/*    margin-right: 10px;*/
-/*}*/
-/*#container{*/
-/*    margin: 0 20%;*/
-/*}*/
-/*#navbar {*/
-/*    border-radius: 5px;*/
-/*}*/
 
-/*#main {*/
-/*    min-height: 100%;*/
-/*}*/
-/*#header .logo a{*/
-/*    background:url("../images/FBreak.png") 0 0 no-repeat;*/
-/*    display: block;*/
-/*    height: 142px;*/
-/*    width: 376px;*/
-/*}*/
-/*.btn {*/
-/*    margin-right: 10px;*/
-/*}*/
-
-/*#page {*/
-/*    min-height: 100%;*/
-/*}*/
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 0;
+}

@@ -1,10 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>FBreak | Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="css/static.css">
+    <link rel="stylesheet" href="css/login.css">
+    <style>
+        #success_message{ display: none;}
+    </style>
+    <script th:src="@{js/login_validation_form.js}"></script>
 </head>
 <body>
+<div class="main">
+    <div class="container">
+        <div class="row header">
+            <div class="logo">
+                <a th:href="@{/}"><img src="../images/logo.svg" alt="logo"></a>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li><a th:href="@{/login}">LOG IN</a></li>
+                    <li><a th:href="@{/registration}">REGISTER</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <form class="well form-horizontal" th:action="@{/login_process}" method="post"  id="contact_form" name="reg_form">
+            <fieldset>
+
+                <legend style="text-align: center;"><h2><b>Login Form</b></h2></legend><br>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">E-Mail</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"></span>
+                            <input name="email" placeholder="E-Mail Address" class="form-control input"  type="text" id="email" required minlength="3" maxlength="20">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label" >Password</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"></span>
+                            <input name="user_password" placeholder="Password" class="form-control input"  type="password" required minlength="3" maxlength="20">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label"></label>
+                    <div class="col-md-4"><br>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-warning" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+</div>
 
 </body>
 </html>

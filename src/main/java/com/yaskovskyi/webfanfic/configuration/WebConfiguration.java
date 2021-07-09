@@ -28,8 +28,8 @@ public class WebConfiguration extends WebSecurityConfigurerAdapter {
 //    }
 
     @Bean
-    public AuthenticationFailureHandler getFailureHandler(){
-        SimpleUrlAuthenticationFailureHandler handler  =  new SimpleUrlAuthenticationFailureHandler();
+    public AuthenticationFailureHandler getFailureHandler() {
+        SimpleUrlAuthenticationFailureHandler handler = new SimpleUrlAuthenticationFailureHandler();
         handler.setDefaultFailureUrl("/index");
         return handler;
     }
@@ -49,8 +49,6 @@ public class WebConfiguration extends WebSecurityConfigurerAdapter {
     }
 
 
-
-
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
@@ -59,15 +57,22 @@ public class WebConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/users").authenticated()
+                .antMatchers("/publish_post").authenticated()
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
+                .loginPage("/login.html")
                 .usernameParameter("email")
-                .defaultSuccessUrl("/users")
+                .defaultSuccessUrl("/")
                 .permitAll()
                 .and()
-                .logout().logoutSuccessUrl("/index").permitAll();
-
+                .logout().logoutSuccessUrl("/").permitAll();
+//        http.authorizeRequests()
+//                .antMatchers("","/posts/show","/login",)
+//        http.csrf().disable()
+//                .authorizeRequests()
+//                .antMatchers("/admin/**").hasRole("ADMIN")
+//                .antMatchers("/").permitAll()
+//                .anyRequest().authenticated();
     }
 }
