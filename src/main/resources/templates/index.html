@@ -22,9 +22,14 @@
                 <a th:href="@{/}"><img src="../images/logo.svg" alt="logo"></a>
             </div>
             <div class="nav">
-                <ul>
+                <ul sec:authorize="isAnonymous()">
                     <li><a th:href="@{/login}">LOG IN</a></li>
                     <li><a th:href="@{/registration}">REGISTER</a></li>
+
+                </ul>
+                <ul sec:authorize="isAuthenticated()">
+                    <li><span class="logged_user" sec:authentication="name"></span></li>
+                    <li><a th:href="@{/logout}">LOGOUT</a></li>
                 </ul>
             </div>
         </div>
@@ -34,21 +39,21 @@
         <div class="content">
 
             <div class="post_header">
-                <div class="profile">
-                    <button class="button-head">My profile</button>
-                    <button class="button-head">Create Post</button>
-                </div>
-                <div class="buttons">
-                    <form th:action="@{/}" method="get">
-                        <button class="button-head" th:name="sort" th:value="date">Sort by date</button>
-                        <button class="button-head" th:name="sort" th:value="rating">Sort by rating</button>
-                    </form>
-                </div>
+                <a th:href="@{/publish}">NEW FANFIC</a>
+                <!--                <div class="profile">-->
+                <!--                    <button class="button-head">My profile</button>-->
+                <!--                </div>-->
+                <!--                <div class="buttons">-->
+                <!--                    <form th:action="@{/}" method="get">-->
+                <!--                        <button class="button-head" th:name="sort" th:value="date">Sort by date</button>-->
+                <!--                        <button class="button-head" th:name="sort" th:value="rating">Sort by rating</button>-->
+                <!--                    </form>-->
+                <!--                </div>-->
             </div>
 
             <div class="line"></div>
 
-            <div class="post" th:each="post: ${postsList}">
+            <div class="post" th:each="post, iterStat: ${postsList}">
 
                 <div class="user">
                     <a href="#"><h2 th:text="'Creator: '+${post.fanfic_creator}">User</h2></a>
@@ -57,12 +62,11 @@
                     <h2 th:text="'Fandom: '+${post.fanfic_fandom}">Fandom</h2>
                 </div>
 
-                <div class="tags">
-                    <!--                            TODO: Create array with tags -->
-                    <h2 class="tag" th:text="${post.fanfic_tags}"></h2>
+                <div class="tags" th:object="${tagsList}">
+                    <a class="tag" th:each="tag: ${tagsList[iterStat.index]}" th:text="${tag}" th:href="@{/}"></a>
                 </div>
                 <div>
-                    <img src="https://res.cloudinary.com/dqqr510iw/image/upload/images/ahsoka">
+                    <img class="image" th:src="${post.fanfic_image}">
                 </div>
                 <div>
                     <h2 class="name" th:text="${post.fanfic_name}"></h2>
@@ -75,7 +79,9 @@
                         <h3 class="date" th:text="${post.fanfic_date}"></h3>
                     </div>
                     <div class="buttons">
-                        <button class="button-head" th:value="${post.id}">Read</button>
+                        <form th:action="@{/post_reading}" method="get">
+                            <button class="button-head" name="post-id" th:value="${post.id}">Read</button>
+                        </form>
                     </div>
                 </div>
 

@@ -18,5 +18,4 @@ public class Post {
     private String fanfic_image;
     private String fanfic_text;
     private String fanfic_creator;
-//    private String text;
 }

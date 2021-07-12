@@ -1,11 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Error</title>
+    <title>FBreak</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+    <script src="/js/main.js" defer></script>
+    <link rel="stylesheet" href="css/static.css">
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
-There is error
-<a href="/">Go start page</a>
+
+<div class="main">
+    <div class="container">
+        <div class="row header">
+            <div class="logo">
+                <a th:href="@{/}"><img src="../images/logo.svg" alt="logo"></a>
+            </div>
+            <div class="nav">
+                <ul sec:authorize="isAnonymous()">
+                    <li><a th:href="@{/login}">LOG IN</a></li>
+                    <li><a th:href="@{/registration}">REGISTER</a></li>
+
+                </ul>
+                <ul sec:authorize="isAuthenticated()">
+                    <li><span sec:authentication="name"></span></li>
+                    <li><a th:href="@{/logout}">LOGOUT</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container container_content" th:object="${postsList}">
+        <div class="content">
+            <div class="line"></div>
+            <legend>There is an error. Try later.</legend><a href="/">Go start page</a>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

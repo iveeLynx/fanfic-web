@@ -1,4 +1,4 @@
-package com.yaskovskyi.webfanfic.config;
+package com.yaskovskyi.webfanfic.configuration;
 
 //import java.net.http.HttpClient;
 
@@ -7,7 +7,6 @@ import io.netty.handler.timeout.ReadTimeoutHandler;
 import io.netty.handler.timeout.WriteTimeoutHandler;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
-import org.springframework.http.client.reactive.ClientHttpConnector;
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.netty.http.client.HttpClient;
@@ -42,7 +41,7 @@ public class WebClientApi {
     public WebClient buildApi() {
         return WebClient.builder()
                 .baseUrl(URL).clientConnector(new ReactorClientHttpConnector(httpClient()))
-                .defaultCookie("cookieKey", "cookieValue")
+                .defaultCookie("key", "cookie")
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .defaultUriVariables(Collections.singletonMap("url", URL))
                 .build();
